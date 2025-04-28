@@ -1,0 +1,199 @@
+// Variables
+$primary-color: #e3ecf5;
+$secondary-color: #465c79;
+$background-color: #7289b5;
+$text-color: #333;
+
+// Typography
+$font-family-body: 'Courier Prime', monospace;
+$font-family-titles: 'Poppins', sans-serif;
+
+// Font Sizes
+$font-size-base: 16px;
+$font-size-lg: 24px;
+$font-size-sm: 14px;
+
+//general page setting/styles 
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $font-family-body;
+  font-size: $font-size-base;
+  color: $text-color;
+  background-color: $background-color;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-titles;
+  color: $primary-color;
+}
+
+// hero sections 
+.screen--hero {
+    position: relative;
+    background: url('../assets/images/bg.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 2rem;
+  
+    .hero-items {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      width: 40%;
+      max-width: 400px;
+    }
+  
+    .earth {
+      width: 100%;
+      display: block;
+      animation: floatEarth 4s ease-in-out infinite;
+    }
+  
+    .cloud {
+      position: absolute;
+      max-width: 100%;
+      width: 160px;
+      opacity: 0.8;
+      animation: floatClouds 6s ease-in-out infinite;
+  
+      &.cloud1 {
+        top: 2%;
+        left: 60%;
+        animation-delay: 0s;
+      }
+  
+      &.cloud2 {
+        top: 20%;
+        left: -20%;
+        animation-delay: 1s;
+      }
+  
+      &.cloud3 {
+        top: 70%;
+        left: -10%;
+        animation-delay: 2s;
+      }
+    }
+  
+    .hero-content {
+      position: relative;
+      width: 50%;
+      margin-left: auto;
+      text-align: left;
+      color: #ffffff;
+      z-index: 2;
+      padding: 1rem;
+  
+      h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 500px;
+      }
+  
+      .start-button {
+        display: inline-block;
+        font-family: $font-family-body;
+        padding: 0.8rem 2rem;
+        background-color: #2e7d32;
+        color: #ffffff;
+        border: none;
+        width: 200px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-align: center;
+  
+        &:hover,
+        &:focus {
+          background-color: #388e3c;
+          color: #ffffff;
+          transform: scale(1.05);
+          outline: none;
+        }
+  
+        &:focus-visible {
+          outline: 3px solid #ffffff;
+        }
+      }
+    }
+  }
+  
+  //responsive styles
+  //It still looks good with 450px-700px
+  @media (max-width: 700px) {
+    .screen--hero {
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      padding: 1rem;
+      text-align: center;
+  
+      .hero-items {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 60%;
+        max-width: 300px;
+        margin-bottom: 1.5rem;
+      }
+  
+      .cloud {
+        width: 120px;
+        opacity: 0.7;
+      }
+  
+      .hero-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 0;
+        text-align: center;
+  
+        h1 {
+          font-size: 2rem;
+        }
+  
+        p {
+          font-size: 1rem;
+          margin: 0 auto 1.5rem auto;
+          max-width: 90%;
+        }
+  
+        .start-button {
+          width: 50%;
+          font-size: 1.2rem;
+          padding: 0.7rem 1rem;
+        }
+      }
+    }
+  }
+
+// Animations
+@keyframes floatClouds {
+    0% { transform: translateX(0) translateY(0); }
+    50% { transform: translateX(20px) translateY(-10px); }
+    100% { transform: translateX(0) translateY(0); }
+  }
+  
+  @keyframes floatEarth {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
