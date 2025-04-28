@@ -38,20 +38,3 @@ sections.forEach(section => {
 });
 
 
-//Koden på HTML//
-
-<script>
-        const texts = document.querySelectorAll('.text-block');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.5 });
-
-        texts.forEach(text => {
-            observer.observe(text);
-        });
- </script>
